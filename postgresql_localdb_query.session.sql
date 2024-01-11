@@ -514,3 +514,35 @@ INSERT INTO sales_item VALUES
 (30, 87, 1, 0.15, false, 0.0), 
 (22, 57, 1, 0.19, false, 0.0);
 
+where time_order_taken > '2018-12-01' 
+and time_order_taken < '2018-12-31'
+
+where discount > .15
+order by discount asc
+limit 20
+
+SELECT 
+concat(first_name,' ',last_name) as Name,
+phone,email,sex,company
+FROM customer
+WHERE state ILIKE 'tx';
+
+
+-- inner join
+select item_id,item.id,price, discount
+from item INNER JOIN sales_item
+ON item.id = sales_item.id
+where discount > .15 
+-- and price > 120
+order by discount desc
+-- limit 20
+
+
+select sales_order.id,sales_item.quantity,
+item.price , (sales_item.quantity * item.price) as total
+from sales_order
+join sales_item
+on sales_item.sales_order_id=sales_order.id
+join item
+on sales_item.item_id=item.id
+order by sales_order.id
