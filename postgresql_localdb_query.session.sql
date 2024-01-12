@@ -176,3 +176,27 @@ from sales_order
     join sales_item on sales_item.sales_order_id = sales_order.id
     join item on sales_item.item_id = item.id
 order by sales_order.id
+
+select si.discount as sales_discount,
+    so.name_on_card as so_name_on_card,
+    si.taxable,
+    si.sales_tax_rate,
+    so.purchase_order_number,
+    CONCAT(sperson.first_name, ' ', sperson.last_name) as sales_person_name,
+    CONCAT(c.first_name, ' ', c.last_name) as customer_name,
+    p.name as product_name,
+    p.description as product_description,
+    p.supplier as suplier_name,
+    i.color as item_color,
+    i.size as item_size,
+    i.picture,
+    si.quantity as sales_quantity,
+    i.price,
+    (si.quantity * i.price) as total
+from sales_item as si
+    inner join sales_order as so on si.sales_order_id = so.id
+    inner join sales_person as sperson on so.sales_person_id = sperson.id
+    inner join item as i on si.item_id = i.id
+    inner join product as p on i.product_id = p.id
+    inner join customer as c on so.cust_id = c.id
+order by product_name
