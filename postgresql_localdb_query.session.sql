@@ -149,6 +149,7 @@ where time_order_taken > '2018-12-01'
 where discount >.15
 order by discount asc
 limit 20
+
 SELECT concat(first_name, ' ', last_name) as Name,
     phone,
     email,
@@ -156,6 +157,7 @@ SELECT concat(first_name, ' ', last_name) as Name,
     company
 FROM customer
 WHERE state ILIKE 'tx';
+
 -- inner join
 select item_id,
     item.id,
@@ -165,6 +167,7 @@ from item
     INNER JOIN sales_item ON item.id = sales_item.id
 where discount >.15 -- and price > 120
 order by discount desc -- limit 20
+
 select sales_order.id,
     sales_item.quantity,
     item.price,
