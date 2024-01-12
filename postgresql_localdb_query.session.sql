@@ -199,4 +199,4 @@ from sales_item as si
     inner join item as i on si.item_id = i.id
     inner join product as p on i.product_id = p.id
     inner join customer as c on so.cust_id = c.id
-order by product_name
+order by p.name
