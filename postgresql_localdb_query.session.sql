@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=85pG_pDkITY&ab_channel=DerekBanas
+for all query data in this video description
+
 CREATE TABLE customer (
     first_name VARCHAR (30) NOT NULL,
     last_name VARCHAR (30) NOT NULL,
